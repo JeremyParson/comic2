@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import UserInterface from "./components/UserInterface";
+import StylesContext from "./contexts/StylesContext";
+import CollectorButton from "./components/CollectorButton";
 
 function App() {
+  const style = {
+    background: "#1ECD97",
+    display: "inline-block",
+    width: 120,
+    height: 55,
+    fontSize: 18,
+    letterSpacing: 1,
+    border: "2px solid #1ECD97",
+    borderRadius: 15,
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <main>
+      <StylesContext.Provider value={style}>
+        <h1
+          style={{
+            color: "#FEE001",
+            fontFamily: "Luminari, fantasy",
+            fontSize: 50,
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Welcome to Comics Galore!
+        </h1>
+        <h3>We Carry the latest and greatest editions of your favorite comic books! Are you a collector?</h3>
+        <CollectorButton />
+        <h3>Have a special request? Click here to fill out our form</h3>
+        <UserInterface />
+      </StylesContext.Provider>
+    </main>
   );
 }
 
